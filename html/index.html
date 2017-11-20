@@ -5,9 +5,39 @@
 	<script type="text/javascript" src="../js/vue.js"></script>
 </head>
 <body>
+<!-- 声明式渲染 -->
 	<div id="app">
 		{{message}}
 	</div>
+	<span id="app2" v-bind:title='message'>
+		this is app2.
+	</span>
+	
+	<hr>
+<!-- 条件与循环 -->
+	<div id="app3">
+		<button v-on:click='showOrNot'>show or not </button>
+		<br>
+		<span v-if='flag'>{{message}}</span>
+		
+		<ol>
+			<li v-for='user in users'>{{user.name}}</li>
+		</ol>
+
+	</div>
+	
+<!-- 双向绑定 -->
+	<div id="app4">
+		message:<input type="text" v-model='message'/>
+		输入内容是：{{message}}
+	</div>
+<!-- 组件 -->
+	<div id="app5">
+		<my-component  v-bind:todo='users[1].name'></my-component>	
+	</div>
+
+
+
 	<script type="text/javascript" src="../js/main.js"></script>
 </body>
 </html>
